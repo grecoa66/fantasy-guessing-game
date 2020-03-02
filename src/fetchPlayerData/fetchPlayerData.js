@@ -10,12 +10,13 @@ const playerData = async () => {
 };
 
 const toPlayersArray = rawPlayersArray => {
-  const playersArray = rawPlayersArray.map(player => ({
+  const playersArray = rawPlayersArray.map((player, key) => ({
     firstName: player.first_name,
     lastName: player.last_name,
     fppg: player.fppg,
     position: player.position,
-    image: player.images.default.url
+    image: player.images.default.url,
+    playerId: key
   }));
 
   console.log('PLAYERS OBJECT', playersArray);

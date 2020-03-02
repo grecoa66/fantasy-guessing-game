@@ -5,6 +5,7 @@ import GameContainer from './game/gameContainer';
 
 const AppWrapper = styled.div`
   background-color: lightgray;
+  height: 100vh;
 `;
 
 const App = () => {

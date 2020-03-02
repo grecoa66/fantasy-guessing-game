@@ -5,6 +5,7 @@ const PlayerCardWrapper = styled.div`
   display: flex;
   flex-direction: column;
   background-color: white;
+
   border: solid 2px black;
 `;
 
@@ -24,6 +25,7 @@ const StyledPosition = styled.p`
 `;
 
 const StyledImage = styled.img`
+  height: inherit;
   justify-content: center;
 `;
 
