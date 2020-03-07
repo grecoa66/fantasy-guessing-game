@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import StartGame from './startGame';
 import GamePanel from './gamePanel';
+import GameWon from './gameWon';
 import fetchPlayerData from '../fetchPlayerData/fetchPlayerData';
 
 const GameWrapper = styled.div`
@@ -17,13 +18,27 @@ const GameWrapper = styled.div`
   color: cornflowerblue;
 `;
 
+/**
+
+ */
 const GameContainer = () => {
   // Show rules before game starts
   const [preGame, setPreGame] = useState(true);
   // Are the players loaded? The game is ready after they are loaded
   const [gameReady, setGameReady] = useState(false);
+  // Show the game won panel
+  const [gameWon, setGameWon] = useState(false);
   // All the player data needed to play the game
   const [players, setPlayers] = useState([]);
+
+  const handleGameWon = () => {
+    setGameWon(true);
+  };
+
+  const handleNewGame = () => {
+    setGameWon(false);
+    setPreGame(true);
+  };
 
   // Fetch players
   useEffect(() => {
@@ -39,10 +54,10 @@ const GameContainer = () => {
 
   return (
     <GameWrapper>
-      {preGame ? (
-        <StartGame gameReady={gameReady} clickHandler={setPreGame} />
-      ) : (
-        <GamePanel players={players} />
+      {preGame && <StartGame gameReady={gameReady} clickHandler={setPreGame} />}
+      {gameWon && <GameWon handleNewGame={handleNewGame} />}
+      {!preGame && !gameWon && (
+        <GamePanel players={players} handleGameWon={handleGameWon} />
       )}
     </GameWrapper>
   );

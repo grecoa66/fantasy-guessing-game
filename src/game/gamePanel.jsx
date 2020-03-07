@@ -13,7 +13,8 @@ let shownPlayers = [];
 /**
  * I want to show two players for each round of the game.
  * I want to show unique players each round.
- * I also want to select players at random so each time you play it is different.
+ * I also want to select players at random
+ * so each time you play it is different.
  */
 const selectPlayer = (players, shownPlayers) => {
   // Pick intial random player
@@ -29,13 +30,13 @@ const selectPlayer = (players, shownPlayers) => {
 
   // Flush shownPlayers if all players have been used in game
   if (players.length === shownPlayers.length) {
-    shownPlayers = [];
+    shownPlayers.splice(0, shownPlayers.length);
   }
   console.log('ShownPlayers: ', shownPlayers);
   return selectedPlayer;
 };
 
-const GamePanel = ({ players }) => {
+const GamePanel = ({ players, handleGameWon }) => {
   const [firstPlayer, setFirstPlayer] = useState();
   const [secondPlayer, setSecondPlayer] = useState();
   const [guessCount, setGuessCount] = useState(0);
@@ -45,6 +46,12 @@ const GamePanel = ({ players }) => {
     setFirstPlayer(selectPlayer(players, shownPlayers));
     setSecondPlayer(selectPlayer(players, shownPlayers));
   }, [guessCount, players]);
+
+  useEffect(() => {
+    if (correctGuessCount > 9) {
+      handleGameWon();
+    }
+  }, [correctGuessCount, handleGameWon]);
 
   /**
    * Determine if the user's selection was correct.
