@@ -25,15 +25,17 @@ const StyledPosition = styled.p`
 `;
 
 const StyledImage = styled.img`
-  height: inherit;
+  width: 20vw;
+  max-width: 300px;
   justify-content: center;
+  margin: auto;
 `;
 
-const PlayerCard = player => {
-  const { firstName, lastName, position, image } = player.player;
+const PlayerCard = ({ player, handleUserSelection }) => {
+  const { firstName, lastName, position, image } = player;
 
   return (
-    <PlayerCardWrapper>
+    <PlayerCardWrapper onClick={() => handleUserSelection(player)}>
       <UpperDetail>
         <StyledName>
           {firstName} {lastName}

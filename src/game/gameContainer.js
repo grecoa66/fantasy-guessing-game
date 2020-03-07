@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
-import PlayerCard from '../player/playerCard';
 import StartGame from './startGame';
 import GamePanel from './gamePanel';
 import fetchPlayerData from '../fetchPlayerData/fetchPlayerData';
@@ -9,9 +8,9 @@ const GameWrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  height: 300px;
+  height: 500px;
   width: 60vw;
-  max-width: 600px;
+  max-width: 800px;
   margin: 20px auto;
   padding: 25px;
   background-color: white;
