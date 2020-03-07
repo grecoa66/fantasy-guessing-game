@@ -37,10 +37,12 @@ const PlayerCard = ({ player, handleUserSelection }) => {
   return (
     <PlayerCardWrapper onClick={() => handleUserSelection(player)}>
       <UpperDetail>
-        <StyledName>
+        <StyledName data-testid="playerName">
           {firstName} {lastName}
         </StyledName>
-        <StyledPosition>Position: {position}</StyledPosition>
+        <StyledPosition data-testid="playerPosition">
+          Position: {position}
+        </StyledPosition>
       </UpperDetail>
       <StyledImage src={image} />
     </PlayerCardWrapper>

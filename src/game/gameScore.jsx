@@ -20,8 +20,12 @@ const Incorrect = styled.p`
 const GameScore = ({ correctGuesses, totalGuesses }) => {
   return (
     <GameScoreWrapper>
-      <Correct>Correct Guesses: {correctGuesses}</Correct>
-      <Incorrect>Incorrect Guesses: {totalGuesses - correctGuesses}</Incorrect>
+      <Correct data-testid="correctGuesses">
+        Correct Guesses: {correctGuesses}
+      </Correct>
+      <Incorrect data-testid="incorrectGuesses">
+        Incorrect Guesses: {totalGuesses - correctGuesses}
+      </Incorrect>
     </GameScoreWrapper>
   );
 };

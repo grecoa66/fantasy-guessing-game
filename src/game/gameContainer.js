@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import StartGame from './startGame';
-import GamePanel from './gamePanel';
+import GameController from './gameController';
 import GameWon from './gameWon';
 import fetchPlayerData from '../fetchPlayerData/fetchPlayerData';
 
@@ -57,7 +57,7 @@ const GameContainer = () => {
       {preGame && <StartGame gameReady={gameReady} clickHandler={setPreGame} />}
       {gameWon && <GameWon handleNewGame={handleNewGame} />}
       {!preGame && !gameWon && (
-        <GamePanel players={players} handleGameWon={handleGameWon} />
+        <GameController players={players} handleGameWon={handleGameWon} />
       )}
     </GameWrapper>
   );

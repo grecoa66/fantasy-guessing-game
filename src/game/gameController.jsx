@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
-import GameCard from '../player/playerCard';
+import GameCard from './playerCard';
 import GameScore from './gameScore';
 
-const GamePanelWrapper = styled.div`
+const GameControllerWrapper = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -36,7 +36,7 @@ const selectPlayer = (players, shownPlayers) => {
   return selectedPlayer;
 };
 
-const GamePanel = ({ players, handleGameWon }) => {
+const GameController = ({ players, handleGameWon }) => {
   const [firstPlayer, setFirstPlayer] = useState();
   const [secondPlayer, setSecondPlayer] = useState();
   const [guessCount, setGuessCount] = useState(0);
@@ -79,7 +79,7 @@ const GamePanel = ({ players, handleGameWon }) => {
   return (
     <>
       <GameScore correctGuesses={correctGuessCount} totalGuesses={guessCount} />
-      <GamePanelWrapper>
+      <GameControllerWrapper>
         {firstPlayer && secondPlayer && (
           <>
             <GameCard
@@ -92,9 +92,9 @@ const GamePanel = ({ players, handleGameWon }) => {
             />
           </>
         )}
-      </GamePanelWrapper>
+      </GameControllerWrapper>
     </>
   );
 };
 
-export default GamePanel;
+export default GameController;

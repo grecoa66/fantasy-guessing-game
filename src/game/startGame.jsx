@@ -28,7 +28,11 @@ const StartGame = ({ gameReady, clickHandler }) => {
         has a higher Fantasy Points Per Game. Win the game when you select the
         correct player 10 times.
       </p>
-      <StyledButton disabled={!gameReady} onClick={() => clickHandler(false)}>
+      <StyledButton
+        disabled={!gameReady}
+        onClick={() => clickHandler()}
+        data-testid="startButton"
+      >
         Start Game
       </StyledButton>
     </StartGameWrapper>
