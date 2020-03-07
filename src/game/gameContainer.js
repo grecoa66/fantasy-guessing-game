@@ -17,9 +17,9 @@ const GameWrapper = styled.div`
   background-color: white;
   color: cornflowerblue;
 `;
-
 /**
-
+ * This component will fetch the player data and control the flow of the game.
+ * This component will manage the start and end of the game as well.
  */
 const GameContainer = () => {
   // Show rules before game starts

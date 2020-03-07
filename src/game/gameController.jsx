@@ -36,6 +36,11 @@ const selectPlayer = (players, shownPlayers) => {
   return selectedPlayer;
 };
 
+/**
+ * This component will control the mechanics of the game.
+ * This component chooses which players to display.
+ * It also manages the score of the game.
+ */
 const GameController = ({ players, handleGameWon }) => {
   const [firstPlayer, setFirstPlayer] = useState();
   const [secondPlayer, setSecondPlayer] = useState();
